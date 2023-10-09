@@ -6,6 +6,7 @@ android {
     namespace 'com.example.movies'
     compileSdk 33
 
+
     defaultConfig {
         applicationId "com.example.movies"
         minSdk 24
@@ -14,12 +15,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         Properties properties = new Properties()
         properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
         buildConfigField "String", "API_KEY", "\"${properties.getProperty("API_KEY")}\""
 
-        android.buildFeatures.buildConfig true
+
     }
 
     buildTypes {
@@ -31,6 +33,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures{
+        buildConfig = true
     }
 }
 
